@@ -1,48 +1,38 @@
 <?php
-/* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
-  # ------------------------------------------------------------------------
-  # author    Prieco S.A.
-  # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
-  # @license - http://http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
-  # Websites: http://www.prieco.com
-  # Technical Support:  Forum - http://www.prieco.com/en/forum/index.html
-  ------------------------------------------------------------------------- */
-
+/**
+ * @version		$Id: default_items.php 22338 2011-11-04 17:24:53Z github_bot $
+ * @package		Joomla.Site
+ * @subpackage	com_contact
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
 // no direct access
 defined('_JEXEC') or die;
+
 JHtml::core();
 
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn = $this->escape($this->state->get('list.direction'));
-
-// Create a shortcut for params.
-$params = &$this->item->params;
 ?>
-
 <?php if (empty($this->items)) : ?>
-    <p> <?php echo JText::_('COM_CONTACT_NO_CONTACTS'); ?>	 </p>
+    <p> <?php echo JText::_('COM_CONTACT_NO_ARTICLES'); ?>	 </p>
 <?php else : ?>
 
     <form action="<?php echo htmlspecialchars(JFactory::getURI()->toString()); ?>" method="post" name="adminForm" id="adminForm">
-        <fieldset class="filters">
-            <legend class="hidelabeltxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
-            <?php if ($this->params->get('show_pagination_limit')) : ?>
+        <?php if ($this->params->get('show_pagination_limit')) : ?>
+            <fieldset class="filters">
+                <legend class="hidelabeltxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
+
                 <div class="display-limit">
                     <?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>&#160;
                     <?php echo $this->pagination->getLimitBox(); ?>
                 </div>
-            <?php endif; ?>
-            <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-            <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
-        </fieldset>
-
+            </fieldset>
+        <?php endif; ?>
         <table class="category table table-bordered table-striped">
             <?php if ($this->params->get('show_headings')) : ?>
                 <thead><tr>
-                        <th class="item-num">
-                            <?php echo JText::_('JGLOBAL_NUM'); ?>
-                        </th>
+
                         <th class="item-title">
                             <?php echo JHtml::_('grid.sort', 'COM_CONTACT_CONTACT_EMAIL_NAME_LABEL', 'a.name', $listDirn, $listOrder); ?>
                         </th>
@@ -98,10 +88,11 @@ $params = &$this->item->params;
 
             <tbody>
                 <?php foreach ($this->items as $i => $item) : ?>
-                    <tr class="<?php echo ($i % 2) ? "odd" : "even"; ?>">
-                        <td class="item-num">
-                            <?php echo $i; ?>
-                        </td>
+                    <?php if ($this->items[$i]->published == 0) : ?>
+                        <tr class="system-unpublished cat-list-row<?php echo $i % 2; ?>">
+                        <?php else: ?>
+                        <tr class="cat-list-row<?php echo $i % 2; ?>" >
+                        <?php endif; ?>
 
                         <td class="item-title">
                             <a href="<?php echo JRoute::_(ContactHelperRoute::getContactRoute($item->slug, $item->catid)); ?>">
@@ -155,11 +146,26 @@ $params = &$this->item->params;
                                 <?php echo $item->country; ?>
                             </td>
                         <?php endif; ?>
+
                     </tr>
                 <?php endforeach; ?>
 
             </tbody>
         </table>
 
+        <?php if ($this->params->get('show_pagination')) : ?>
+            <div class="pagination">
+                <?php if ($this->params->def('show_pagination_results', 1)) : ?>
+                    <p class="counter">
+                        <?php echo $this->pagination->getPagesCounter(); ?>
+                    </p>
+                <?php endif; ?>
+                <?php echo $this->pagination->getPagesLinks(); ?>
+            </div>
+        <?php endif; ?>
+        <div>
+            <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
+            <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+        </div>
     </form>
 <?php endif; ?>
