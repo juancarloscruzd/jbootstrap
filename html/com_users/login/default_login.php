@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -10,7 +10,7 @@
   ------------------------------------------------------------------------- */
 
 defined('_JEXEC') or die;
-JHtml::_('behavior.keepalive');
+//JHtml::_('behavior.keepalive');
 
 require_once(JPATH_LIBRARIES . '/gantry/gantry.php');
 $gantry->init();

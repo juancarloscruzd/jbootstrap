@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -11,6 +11,14 @@
 
 // no direct access
 defined('_JEXEC') or die;
+
+require_once(JPATH_LIBRARIES . '/gantry/gantry.php');
+global $gantry;
+$gantry->init();
+$gridsystem = $gantry->get('gridsystem');
+$gridrows = ($gridsystem == '' ? 9 : 12);
+
+
 $class = ' class="first"';
 ?>
 
@@ -24,7 +32,7 @@ $class = ' class="first"';
             endif;
             ?>
 
-            <div class="row-fluid"><div class="span12"><dl<?php echo $class; ?>>
+            <div class="row<?php echo $gridsystem ?>"><div class="span<?php echo $gridrows; ?>"><dl<?php echo $class; ?>>
                         <?php $class = ''; ?>
                         <dt class="item-title"><a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($child->id)); ?>">
                             <?php echo $this->escape($child->title); ?></a>

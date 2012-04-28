@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -11,9 +11,9 @@
 
 defined('_JEXEC') or die;
 
-JHtml::_('behavior.keepalive');
-JHtml::_('behavior.tooltip');
-JHtml::_('behavior.formvalidation');
+//JHtml::_('behavior.keepalive');
+//JHtml::_('behavior.tooltip');
+//JHtml::_('behavior.formvalidation');
 //load user_profile plugin language
 $lang = JFactory::getLanguage();
 $lang->load('plg_user_profile', JPATH_ADMINISTRATOR);

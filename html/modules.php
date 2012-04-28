@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -51,13 +51,11 @@ function modChrome_submenu($module, &$params, &$attribs) {
             <?php if ($params->get('moduleclass_sfx') != '') : ?>
                 <div class="<?php echo $params->get('moduleclass_sfx'); ?>">
                 <?php endif; ?>
-                <div class="jb-block">
-                    <div class="module-title"><div class="module-title2">
-                            <h2 class="title"><?php echo $menu_title_item->title . ' ' . JText::_('Menu'); ?></h2>
-                        </div><div class="clear"></div></div>
-                    <div class="module-content">
-                        <?php echo $module->content; ?>
-                    </div>
+                <div class="module-title"><div class="module-title2">
+                        <h2 class="title"><?php echo $menu_title_item->title . ' ' . JText::_('Menu'); ?></h2>
+                    </div></div>
+                <div class="module-content">
+                    <?php echo $module->content; ?>
                 </div>
                 <?php if ($params->get('moduleclass_sfx') != '') : ?>
                 </div>
@@ -81,14 +79,12 @@ function modChrome_standard($module, &$params, &$attribs) {
         <?php if ($params->get('moduleclass_sfx') != '') : ?>
             <div class="<?php echo $params->get('moduleclass_sfx'); ?>">
             <?php endif; ?>
-            <div class="jb-block">
-                <?php if ($module->showtitle != 0) : ?>
-                    <div class="module-title">
-                        <h2 class="title"><?php echo $module->title; ?></h2>
-                    </div>
-                <?php endif; ?>
-                <?php echo $module->content; ?>
-            </div>
+            <?php if ($module->showtitle != 0) : ?>
+                <div class="module-title">
+                    <h2 class="title"><?php echo $module->title; ?></h2>
+                </div>
+            <?php endif; ?>
+            <?php echo $module->content; ?>
             <?php if ($params->get('moduleclass_sfx') != '') : ?>
             </div>
         <?php endif; ?>

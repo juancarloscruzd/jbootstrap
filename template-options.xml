@@ -19,11 +19,11 @@
         <field name="master" type="hidden" value="false" default="true"/>
         <field name="current_id" type="hidden" value="false" default="true"/>
         <field name="gantry" type="gantry" value="" panel_position="hiddens"/>
-        <field name="template_full_name" type="hidden" default="J!Bootstrap"/>
+        <field name="template_full_name" type="hidden" default="Jootstrap"/>
         <!--<field name="diagnostic" type="diagnostic" panel_position="right" show_label="false" />-->
         <!--<field name="overviewtips" type="tips" tab="overview" panel_position="right" show_label="false"/>-->
         <field name="grid_system" type="hidden" default="12"/>
-        <field name="template_prefix" type="hidden" default="gantry-"/>
+        <field name="template_prefix" type="hidden" default="jootb-"/>
         <field name="cookie_time" type="hidden" default="31536000"/>
 
         <field name="copy_lang_files_if_diff" type="hidden" default="1"/>
@@ -36,6 +36,13 @@
             </html>
         </field>
         <field name="styletips" type="tips" tab="style" panel_position="right" show_label="false"/>
+        
+        <field name="gridsystem" type="selectbox" default="" label="Grid System" isbodyclass="false" setbyurl="true"
+               setinsession="true" setbysession="true" setincookie="true" setbycookie="true">
+            <option value="">Fixed Grid</option>
+            <option value="-fluid">Responsive - Fluid Grid</option>
+        </field>
+        
         <field name="cssstyle" type="selectbox" default="style1" label="CSS_STYLE" isbodyclass="true" setbyurl="true"
                setinsession="true" setbysession="true" setincookie="true" setbycookie="true">
             <option value="style1">Style 1</option>
@@ -46,19 +53,19 @@
         <field name="bgcolor" type="colorchooser" default="#ffffff" label="BG_COLOR" setinsession="true"
                setbysession="true" setincookie="true" setbycookie="true"/>
 
-        <field name="headercolor" type="colorchooser" default="#111111" label="HEADER_COLOR" setinsession="true"
+        <field name="headercolor" type="colorchooser" default="#1A3867" label="HEADER_COLOR" setinsession="true"
                setbysession="true" setincookie="true" setbycookie="true"/>
 
-        <field name="bottomcolor" type="colorchooser" default="#111111" label="BOTTOM_COLOR" setinsession="true"
+        <field name="bottomcolor" type="colorchooser" default="#1A3867" label="BOTTOM_COLOR" setinsession="true"
                setbysession="true" setincookie="true" setbycookie="true"/>
 
-        <field name="footercolor" type="colorchooser" default="#666666" label="FOOTER_COLOR" setinsession="true"
+        <field name="footercolor" type="colorchooser" default="#1A3867" label="FOOTER_COLOR" setinsession="true"
                setbysession="true" setincookie="true" setbycookie="true"/>
 
-        <field name="linkcolor" type="colorchooser" default="#0088CC" label="LINK_COLOR" setinsession="true"
+        <field name="linkcolor" type="colorchooser" default="#136AA5" label="LINK_COLOR" setinsession="true"
                setbysession="true" setincookie="true" setbycookie="true"/>
 
-        <fields name="webfonts" type="chain" label="WEBFONTS">
+        <!--<fields name="webfonts" type="chain" label="WEBFONTS">
             <field name="enabled" type="toggle" default="0" label="SHOW"/>
             <field name="source" type="selectbox" default="google" label="WEBFONTS_SOURCE">
                 <option value="google">Google Font Directory</option>
@@ -83,7 +90,7 @@
                 <option value="large">F_LARGE</option>
                 <option value="xlarge">F_XLARGE</option>
             </field>
-        </fields>
+        </fields>-->
 
     </fieldset>
     
@@ -135,7 +142,7 @@
             <field name="position" type="position" translation="false" default="header-a" label="POSITION"/>
             <field name="autosize" type="toggle" default="0" label="AUTO_SIZE"/>
             <field name="perstyle" type="hidden" default="0"/>
-            <field name="css" type="hidden" default="body #rt-logo"/>
+            <field name="css" type="hidden" default="body #jb-logo"/>
         </fields>
 
         <fields name="date" type="chain" label="DATE">
@@ -154,29 +161,35 @@
             </field>
         </fields>
 
+        <!--
         <fields name="fontsizer" type="chain" label="FONT_SIZER">
             <field name="enabled" type="toggle" default="0" label="SHOW"/>
             <field name="position" type="position" translation="false" default="feature-b" label="POSITION"/>
         </fields>
+        -->
 
         <fields name="copyright" type="chain" label="COPYRIGHT">
             <field name="enabled" type="toggle" default="1" label="SHOW"/>
             <field name="position" type="position" translation="false" default="copyright" label="POSITION"/>
-            <field name="text" type="text" default="Designed by RocketTheme" label="" class="text-long"/>
+            <field name="text" type="text" default="Designed by Prieco S.A." label="" class="text-long"/>
         </fields>
 
+        <!--
         <fields name="smartload" type="chain" labeel="SMARTLOAD">
             <field name="enabled" type="toggle" default="0" label="SHOW"/>
             <field name="text" type="text" default="50" label="Y_OFFSET" class="text-short"/>
             <field name="ignores" type="text" default="com_contact" label="COMPONENT_IGNORES" class="text-medium"/>
             <field name="exclusion" type="text" default="" label="XPATH_IGNORES" class="text-medium"/>
         </fields>
+        -->
 
+        <!--
         <fields name="totop" type="chain" label="TOTOP">
             <field name="enabled" type="toggle" default="1" label="SHOW"/>
             <field name="position" type="position" translation="false" default="copyright" label="POSITION"/>
             <field name="text" type="text" default="Scroll to Top" label="" class="text-long"/>
         </fields>
+        -->
 
         <fields name="systemmessages" type="chain" label="SYSMESSAGE">
             <field name="enabled" type="toggle" default="1" label="SHOW"/>
@@ -189,10 +202,12 @@
             <field name="text" type="text" default="Reset Settings" label="" class="text-long"/>
         </fields>
 
+        <!--
         <fields name="ie6warn" type="chain" label="IE6WARN">
             <field name="enabled" type="toggle" default="1" label="SHOW"/>
             <field name="delay" type="text" default="2000" label="DELAY" class="text-short"/>
         </fields>
+        -->
 
         <fields name="analytics" type="chain" label="ANALYTICS">
             <field name="enabled" type="toggle" default="0" label="ANALYTICS_ENABLE"/>
@@ -201,70 +216,30 @@
     </fieldset>
 
     
-<!--    
     <fieldset name="menu" label="MENU">
         <field name="menusettings" type="html" panel_position="right" show_label="false">
             <html><![CDATA[
 					<h2>Menu Settings</h2>
 
-					<p>The iPhone settings available in this interface allow you to control the style and functionality of the iPhone costum theme which is a powerful feature included in the Gantry Framework. For more detailed information on each settings and how it is being used, please refer to the help information below.</p>
+					<p>The Navbar settings available in this interface allow you to control the style and functionality of the Navbar custom theme which is a powerful feature included in Jootstrap. For more detailed information on each settings and how it is being used, please refer to the help information below.</p>
 					]]>
             </html>
         </field>
         <field name="menutips" type="tips" tab="menu" panel_position="right" show_label="false"/>
         <fields name="menu" type="selectedset" label="MENU_CTRL">
-            <field name="enabled" type="toggle" default="1" label="SHOW" />
-            <field name="type" type="selectbox" selector="true" default="fusionmenu" label="TYPE" isbodyclass="true" setbyurl="true" setinsession="true" setbysession="true" setincookie="true" setbycookie="true"/>
-            <fields type="set" name="fusionmenu" label="FUSION">
+            <field name="enabled" type="toggle" default="1" label="SHOW" enabler="true" />
+            <field name="type" type="selectbox" selector="true" default="navbarmenu" label="TYPE" isbodyclass="true" setbyurl="true" setinsession="true" setbysession="true" setincookie="true" setbycookie="true"/>
+            <fields type="set" name="navbarmenu" label="NAVBAR">
                 <field name="menutype" type="menus" default="mainmenu" label="MENU_SELECT" />
-                <field name="position" type="position" translation="false" default="header-b" label="POSITION" />
-                <field name="enable_js" type="toggle" default="1" label="ENABLE_JS" />
-                <field name="opacity" type="text" default="1" label="MENU_OPACITY" class="text-short" />
-                <field name="effect" type="selectbox" default="slidefade" label="MENU_EFFECT">
-                    <option value="slide">SLIDE</option>
-                    <option value="slidefade">SLIDEFADE</option>
-                </field>
-                <field name="hidedelay" type="text" default="500" label="MENU_DELAY" class="text-short" />
-                <field name="menu-animation" type="animation" default="Circ.easeOut" label="MENU_ANIMATION" />
-                <field name="menu-duration" type="text" default="300" label="MENU_DURATION" class="text-short" />
-                <field name="centered-offset" type="hidden" default="0" label="CENTERED_DROPDOWN" />
-                <field name="tweak-initial-x" type="hidden" default="-10" label="X_OFFSET" class="text-short" />
-                <field name="tweak-initial-y" type="hidden" default="-13" label="Y_OFFSET" class="text-short" />
-                <field name="tweak-subsequent-x" type="hidden" default="0" label="X_OFFSET" class="text-short" />
-                <field name="tweak-subsequent-y" type="hidden" default="0" label="Y_OFFSET" class="text-short" />
-                <field name="tweak-width" type="hidden" default="20" />
-                <field name="tweak-height" type="hidden" default="20" />
-
-                <field name="enable-current-id" type="toggle" default="0" label="ENABLE_ID" />
-                <field name="theme" type="hidden" default="gantry-fusion"/>
-                <field name="limit_levels" type="hidden" default="0"/>
-                <field name="startLevel" type="hidden" default="0"/>
-                <field name="showAllChildren" type="hidden" default="1"/>
-                <field name="class_sfx" type="hidden" default="top"/>
-                <field name="cache" type="hidden" default="0"/>
-                <field name="module_cache" type="hidden" default="1"/>
-            </fields>
-            <fields type="set" name="splitmenu" label="SPLITMENU">
-                <field name="menutype" type="menus" default="mainmenu" label="MENU_SELECT" />
-                <field name="theme" type="hidden" default="gantry-splitmenu"/>
+                <field name="theme" type="hidden" default="jootstrap-navbarmenu"/>
                 <field name="cache" type="hidden" default="0"/>
                 <field name="module_cache" type="hidden" default="1"/>
 
-                <field name="mainmenu-position" type="position" translation="false" default="header-b" label="MAINMENU_POS" />
-                <field name="mainmenu-limit_levels" type="hidden" default="1"/>
-                <field name="mainmenu-startLevel" type="hidden" default="0"/>
-                <field name="mainmenu-endLevel" type="hidden" default="0"/>
-                <field name="mainmenu-class_sfx" type="hidden" default="top"/>
-
-                <field name="submenu-position" type="position" translation="false" default="sidebar-a" label="SUBMENU_POS" />
-                <field name="submenu-limit_levels" type="hidden" default="1"/>
-                <field name="submenu-startLevel" type="hidden" default="1"/>
-                <field name="submenu-endLevel" type="hidden" default="9"/>
-                <field name="submenu-class_sfx" type="text" default="" label="SIDEMENU_CLASS_SFX" class="text-short" />
-            </fields>
+                <field name="mainmenu-position" type="position" translation="false" default="top-b" label="MAINMENU_POS" />
+            </fields>            
         </fields>
     </fieldset>
--->    
+
     <fieldset name="layouts" label="LAYOUTS">
 
         <field name="layoutsettings" type="html" panel_position="right" show_label="false">

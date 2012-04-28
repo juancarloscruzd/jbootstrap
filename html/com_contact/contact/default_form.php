@@ -1,15 +1,17 @@
 <?php
-/**
- * @version		$Id: default_form.php 11845 2009-05-27 23:28:59Z robs
- * @package		Joomla.Site
- * @subpackage	com_contact
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
+/* ------------------------------------------------------------------------
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # ------------------------------------------------------------------------
+  # author    Prieco S.A.
+  # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
+  # @license - http://http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+  # Websites: http://www.prieco.com
+  # Technical Support:  Forum - http://www.prieco.com/en/forum/index.html
+  ------------------------------------------------------------------------- */
 defined('_JEXEC') or die;
-JHtml::_('behavior.keepalive');
-JHtml::_('behavior.formvalidation');
-JHtml::_('behavior.tooltip');
+//JHtml::_('behavior.keepalive');
+//JHtml::_('behavior.formvalidation');
+//JHtml::_('behavior.tooltip');
 if (isset($this->error)) :
     ?>
     <div class="contact-error">
@@ -43,12 +45,12 @@ if (isset($this->error)) :
                             <?php echo $field->input; ?>
                         <?php else: ?>
                             <div class="control-group">
-                                
-                                    <?php echo $field->label; ?>
-                                    <?php if (!$field->required && $field->type != "Spacer"): ?>
-                                        <span class="optional"><?php echo JText::_('COM_CONTACT_OPTIONAL'); ?></span>
-                                    <?php endif; ?>
-                                
+
+                                <?php echo $field->label; ?>
+                                <?php if (!$field->required && $field->type != "Spacer"): ?>
+                                    <span class="optional"><?php echo JText::_('COM_CONTACT_OPTIONAL'); ?></span>
+                                <?php endif; ?>
+
                                 <div class="controls"><?php echo $field->input; ?></div></div>
                         <?php endif; ?>
                     <?php endforeach; ?>

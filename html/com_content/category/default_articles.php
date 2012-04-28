@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -12,8 +12,14 @@
 // no direct access
 defined('_JEXEC') or die;
 
+require(JPATH_LIBRARIES . '/gantry/gantry.php');
+global $gantry;
+$gantry->init();
+$gridsystem = $gantry->get('gridsystem');
+$gridrows = ($gridsystem == '' ? 9 : 12);
+
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
-JHtml::_('behavior.tooltip');
+//JHtml::_('behavior.tooltip');
 JHtml::core();
 
 // Create some shortcuts.
@@ -33,7 +39,7 @@ $listDirn = $this->escape($this->state->get('list.direction'));
 
     <form action="<?php echo htmlspecialchars(JFactory::getURI()->toString()); ?>" method="post" name="adminForm" id="adminForm">
         <?php if ($this->params->get('show_headings') || $this->params->get('filter_field') != 'hide' || $this->params->get('show_pagination_limit')) : ?>
-            <fieldset class="filters row-fluid">
+            <fieldset class="filters">
                 <?php if ($this->params->get('filter_field') != 'hide') : ?>
                     <legend class="hidelabeltxt">
                         <?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?>
@@ -59,7 +65,7 @@ $listDirn = $this->escape($this->state->get('list.direction'));
             </fieldset>
         <?php endif; ?>
 
-        <table class="category table row-fluid">
+        <table class="category table">
             <?php if ($this->params->get('show_headings')) : ?>
                 <thead>
                     <tr>
@@ -126,7 +132,7 @@ $listDirn = $this->escape($this->state->get('list.direction'));
                                 </td>
                             <?php endif; ?>
 
-                                <?php if ($this->params->get('list_show_author', 1) && !empty($article->author)) : ?>
+                            <?php if ($this->params->get('list_show_author', 1) && !empty($article->author)) : ?>
                                 <td class="list-author">
                                     <?php $author = $article->author ?>
                                     <?php $author = ($article->created_by_alias ? $article->created_by_alias : $author); ?>
@@ -140,17 +146,17 @@ $listDirn = $this->escape($this->state->get('list.direction'));
 
                                     <?php else : ?>
                                         <?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
-                                <?php endif; ?>
+                                    <?php endif; ?>
                                 </td>
                             <?php endif; ?>
 
-                                <?php if ($this->params->get('list_show_hits', 1)) : ?>
+                            <?php if ($this->params->get('list_show_hits', 1)) : ?>
                                 <td class="list-hits">
-                                <?php echo $article->hits; ?>
+                                    <?php echo $article->hits; ?>
                                 </td>
                             <?php endif; ?>
 
-                            <?php else : // Show unauth links.  ?>
+                        <?php else : // Show unauth links.  ?>
                             <td>
                                 <?php
                                 echo $this->escape($article->title) . ' : ';
@@ -163,11 +169,11 @@ $listDirn = $this->escape($this->state->get('list.direction'));
                                 $fullURL->setVar('return', base64_encode($returnURL));
                                 ?>
                                 <a href="<?php echo $fullURL; ?>" class="register">
-                            <?php echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE'); ?></a>
+                                    <?php echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE'); ?></a>
                             </td>
-                    <?php endif; ?>
+                        <?php endif; ?>
                     </tr>
-    <?php endforeach; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     <?php endif; ?>
@@ -179,17 +185,17 @@ $listDirn = $this->escape($this->state->get('list.direction'));
 
     <?php // Add pagination links ?>
     <?php if (!empty($this->items)) : ?>
-    <?php if (($this->params->def('show_pagination', 2) == 1 || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
+        <?php if (($this->params->def('show_pagination', 2) == 1 || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
             <div class="pagination pagination-centered">
 
-                    <?php if ($this->params->def('show_pagination_results', 1)) : ?>
+                <?php if ($this->params->def('show_pagination_results', 1)) : ?>
                     <p class="counter pager">
-                    <?php echo $this->pagination->getPagesCounter(); ?>
+                        <?php echo $this->pagination->getPagesCounter(); ?>
                     </p>
                 <?php endif; ?>
 
-            <?php echo $this->pagination->getPagesLinks(); ?>
+                <?php echo $this->pagination->getPagesLinks(); ?>
             </div>
-    <?php endif; ?>
+        <?php endif; ?>
     </form>
 <?php endif; ?>

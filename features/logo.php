@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -33,7 +33,7 @@ class GantryFeaturelogo extends GantryFeature {
             jimport('joomla.filesystem.file');
 
             $path = $gantry->templatePath . DS . 'images' . DS . 'logo';
-            $logocss = $gantry->get('logo-css', 'body #rt-logo');
+            $logocss = $gantry->get('logo-css', 'body #jb-logo');
 
             // get proper path based on perstyle hidden param
             $path = (intval($gantry->get("logo-perstyle", 0)) === 1) ? $path . DS . $gantry->get("cssstyle") . DS : $path . DS;
@@ -51,9 +51,7 @@ class GantryFeaturelogo extends GantryFeature {
 
         ob_start();
         ?>
-        <div class="jb-block">
-            <a href="<?php echo $gantry->baseUrl; ?>" id="jb-logo"></a>
-        </div>
+        <a href="<?php echo $gantry->baseUrl; ?>" id="jb-logo"></a>
         <?php
         return ob_get_clean();
     }

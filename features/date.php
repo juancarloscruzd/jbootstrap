@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -10,21 +10,28 @@
   ------------------------------------------------------------------------- */
 
 defined('JPATH_BASE') or die();
+
+gantry_import('core.gantryfeature');
 /**
  * @package     gantry
- * @subpackage  admin.elements
+ * @subpackage  features
  */
-class JElementMenuJSInit extends JElement {
+class GantryFeatureDate extends GantryFeature {
+    var $_feature_name = 'date';
+   
+	function render($position="") {
+		global $gantry;
+		ob_start();
 
+		$now = &JFactory::getDate();		
+		$format = $this->get('formats');
 
-    function fetchElement($name, $value, &$node, $control_name) {
-
+	    ?>
+		<div class="date-block">
+			<span class="date"><?php echo $now->toFormat($format); ?></span>
+		</div>
+		<?php
+	    return ob_get_clean();
+	}
 	
-        return null;
-    }
-
-
-
 }
-
-?>

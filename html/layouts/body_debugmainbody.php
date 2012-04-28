@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -19,34 +19,34 @@ gantry_import('core.gantrylayout');
  * @subpackage html.layouts
  */
 class GantryLayoutBody_DebugMainBody extends GantryLayout {
+
     var $render_params = array(
-        'counter'       =>  null,
-        'schema'        =>  null,
-        'pushPull'      =>  null,
-        'classKey'      =>  null,
-        'contents'       =>  null,
-        'sidebars'      =>  ''
+        'counter' => null,
+        'schema' => null,
+        'pushPull' => null,
+        'classKey' => null,
+        'contents' => null,
+        'sidebars' => ''
     );
-    function render($params = array()){
+
+    function render($params = array()) {
         global $gantry;
 
-        $fparams = $this-> _getParams($params);
+        $fparams = $this->_getParams($params);
 
         ob_start();
 // XHTML LAYOUT
-?>      <div id="rt-main" class="<?php echo $fparams->classKey; ?>">
+        ?>      <div id="jb-main" class="<?php echo $fparams->classKey; ?>">
             <span class="status">(<?php echo $fparams->counter; ?>) <?php echo $fparams->classKey; ?></span>
             <div class="jb-grid-<?php echo $fparams->schema['mb']; ?> <?php echo $fparams->pushPull[0]; ?>">
-                <div class="jb-block">
-                    <div id="rt-mainbody">
-                        <?php echo $fparams->contents; ?>
-                    </div>
+                <div id="jb-mainbody">
+            <?php echo $fparams->contents; ?>
                 </div>
             </div>
-            <?php echo $fparams->sidebars; ?>
-            <div class="clear"></div>
+        <?php echo $fparams->sidebars; ?>
         </div>
-<?php
+        <?php
         return ob_get_clean();
     }
+
 }

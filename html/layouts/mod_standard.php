@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -33,7 +33,7 @@ class GantryLayoutMod_Standard extends GantryLayout {
         $prefixClass = '';
 
         if ($rparams->prefixCount !=0) {
-            $prefixClass = " rt-prefix-".$rparams->prefixCount;
+            $prefixClass = " jb-prefix-".$rparams->prefixCount;
         }
         ob_start();
         // XHTML LAYOUT

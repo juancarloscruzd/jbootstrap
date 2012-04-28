@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -32,6 +32,9 @@ class GantryLayoutBody_MainBody extends GantryLayout {
     function render($params = array()) {
         global $gantry;
 
+        $gridsystem = $gantry->get('gridsystem');
+        $gridrows = ($gridsystem == '' ? 9 : 12);
+
         $fparams = $this->_getParams($params);
 
         // logic to determine if the component should be displayed
@@ -40,8 +43,8 @@ class GantryLayoutBody_MainBody extends GantryLayout {
 // XHTML LAYOUT
         ?>          
 
-        <div id="jb-main" class="container-fluid">
-            <div class="row-fluid">
+        <div id="jb-main" class="container<?php echo $gridsystem ?>">
+            <div class="row<?php echo $gridsystem ?>">
                 <div class="span<?php echo $fparams->schema['mb']; ?><?php echo ($fparams->pushPull[0] ? ' offset' . $fparams->pushPull[0] : ''); ?>">
                     <?php if (isset($fparams->contentTop)) : ?>
                         <div id="jb-content-top">
@@ -49,12 +52,8 @@ class GantryLayoutBody_MainBody extends GantryLayout {
                         </div>
                     <?php endif; ?>
                     <?php if ($display_component) : ?>
-                        <div class="jb-block">
-                            <div id="jb-mainbody">
-                                <div class="component-content">
-                                    <jdoc:include type="component" />
-                                </div>
-                            </div>
+                        <div id="jb-mainbody">
+                            <jdoc:include type="component" />
                         </div>
                     <?php endif; ?>
                     <?php if (isset($fparams->contentBottom)) : ?>

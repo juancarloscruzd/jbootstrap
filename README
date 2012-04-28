@@ -1,14 +1,14 @@
 
-*** J!Bootstrap ***
+*** Jootstrap ***
 
 Twitter's Bootstrap for Joomla
 
-J!Bootstrap is a new kind of Joomla template. We've been working 
+Jootstrap is a new kind of Joomla template. We've been working 
 with Joomla since 2007, and we love to work and extend it. In the 
 other hand, we've been following the last developments around Html5: 
 Boilerplate, Bootstrap, initializr, KendoUI, and Mustache.
 
-J!Bootstrap is a solution to combine Joomla and Bootstrap in a full 
+Jootstrap is a solution to combine Joomla and Bootstrap in a full 
 template. To help us in the backend management, we have also 
 integrated in the powerfull RocketTheme Gantry framework, as 
 platform to build the theme.
@@ -52,6 +52,38 @@ build a solid theme with.
 - Flexible grid layout system for unparalleled control over block sizes
 
 Get more help and find out more at http://www.gantry-framework.org/
+
+--- Jootstrap Changelog --
+
+- Version 0.4 / 2012-04-28
+
+    Full review
+    Update, Bootstrap 2.0.3
+    Update, Gantry Framework 3.2.19
+    New Navbar Top Menu Feature
+    New Logo Feature
+    Removed, CleanJs Plugin
+    Optimized, nested levels
+    Optimized, legacy jb-* classes
+    Checked Features Tab
+    General minor fixes
+
+- Version 0.2-0.3 / 2012-03-30
+
+    Minor fixes
+
+- Version 0.1 / 2012-03-21
+
+    Initial release
+    Jootstrap template
+    Bootstrap 2.0
+    Gantry Framework
+    CleanJs Plugin
+    Page Break Plugin
+
+-- Twitter account ---
+
+Keep up to date on announcements and more by following Prieco on Twitter, <a href="http://twitter.com/prieco">@prieco</a>.
 
 
 # ------------------------------------------------------------------------

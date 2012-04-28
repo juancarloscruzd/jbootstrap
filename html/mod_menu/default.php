@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -67,7 +67,7 @@ if ($params->get('tag_id') != NULL) {
 
         // The next item is deeper.
         if ($item->deeper) {
-            echo '<ul>';
+            echo '<ul class="jb-nav">';
         }
         // The next item is shallower.
         else if ($item->shallower) {

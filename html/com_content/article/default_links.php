@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -59,7 +59,7 @@ $params = $this->item->params;
                             break;
                         case 3:
                             // open in a modal window
-                            JHtml::_('behavior.modal', 'a.modal');
+                            //JHtml::_('behavior.modal', 'a.modal');
                             ?>
                             <a class="modal" href="<?php echo htmlspecialchars($link); ?>"  rel="{handler: 'iframe', size: {x:600, y:600}}">
                                 <?php

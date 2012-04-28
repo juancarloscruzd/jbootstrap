@@ -1,11 +1,13 @@
 <?php
-/**
- * @version		$Id: default_links.php 22338 2011-11-04 17:24:53Z github_bot $
- * @package		Joomla.Site
- * @subpackage	com_contact
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
+/* ------------------------------------------------------------------------
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # ------------------------------------------------------------------------
+  # author    Prieco S.A.
+  # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
+  # @license - http://http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+  # Websites: http://www.prieco.com
+  # Technical Support:  Forum - http://www.prieco.com/en/forum/index.html
+  ------------------------------------------------------------------------- */
 defined('_JEXEC') or die;
 
 if ('plain' == $this->params->get('presentation_style')) :

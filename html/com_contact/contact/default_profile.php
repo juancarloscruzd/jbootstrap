@@ -1,14 +1,17 @@
 <?php
-/**
- * @version		$Id: default_profile.php 21321 2011-05-11 01:05:59Z dextercowley $
- * @package		Joomla.Site
- * @subpackage	com_contact
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
+/* ------------------------------------------------------------------------
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # ------------------------------------------------------------------------
+  # author    Prieco S.A.
+  # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
+  # @license - http://http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+  # Websites: http://www.prieco.com
+  # Technical Support:  Forum - http://www.prieco.com/en/forum/index.html
+  ------------------------------------------------------------------------- */
 defined('_JEXEC') or die;
 ?>
-<?php if (JPluginHelper::isEnabled('user', 'profile')) :
+<?php
+if (JPluginHelper::isEnabled('user', 'profile')) :
     $fields = $this->item->profile->getFieldset('profile');
     ?>
     <div class="contact-profile" id="users-profile-custom">

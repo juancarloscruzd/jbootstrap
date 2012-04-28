@@ -1,6 +1,7 @@
 <?php
+
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -10,22 +11,24 @@
   ------------------------------------------------------------------------- */
 
 defined('JPATH_BASE') or die();
+
+gantry_import('core.gantryfeature');
 /**
  * @package     gantry
- * @subpackage  admin.elements
+ * @subpackage  features
  */
-class JElementHTML extends JElement {
+class GantryFeatureCopyright extends GantryFeature {
+    var $_feature_name = 'copyright';
 
-
-    function fetchElement($name, $value, &$node, $control_name) {
-	
-		$output = trim($node->data());
-	
-        return $output;
-    }
-
-
-
+	function render($position="") {
+	    ob_start();
+	    ?>
+		<div id="copyright"><dl class="dl-horizontal"><dd>
+			<a href="http://www.rockettheme.com/" title="rockettheme.com" id="rocket"></a>
+			<?php echo $this->get('text'); ?>
+			</dd></dl>
+		</div>
+		<?php
+	    return ob_get_clean();
+	}
 }
-
-?>

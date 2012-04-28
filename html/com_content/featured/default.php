@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -11,6 +11,12 @@
 
 // no direct access
 defined('_JEXEC') or die;
+
+require_once(JPATH_LIBRARIES . '/gantry/gantry.php');
+global $gantry;
+$gantry->init();
+$gridsystem = $gantry->get('gridsystem');
+$gridrows = ($gridsystem == '' ? 9 : 12);
 
 JHtml::addIncludePath(JPATH_COMPONENT . DS . 'helpers');
 ?>
@@ -52,7 +58,7 @@ JHtml::addIncludePath(JPATH_COMPONENT . DS . 'helpers');
 
             if ($rowcount == 1) :
                 ?>
-                <div class="row-fluid items-row cols-<?php echo (int) $this->columns; ?> <?php echo 'row-' . $row; ?>">
+                <div class="row<?php echo $gridsystem ?> items-row cols-<?php echo (int) $this->columns; ?> <?php echo 'row-' . $row; ?>">
                 <?php endif; ?>
                 <div class="span<?php echo 12 / $this->columns; /* JB MAGIC */ ?> item column-<?php echo $rowcount; ?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>">
                     <?php
@@ -75,7 +81,7 @@ JHtml::addIncludePath(JPATH_COMPONENT . DS . 'helpers');
     <?php /** End Article Links * */ endif; ?>
 
     <?php /** Begin Pagination * */ if ($this->params->def('show_pagination', 2) == 1 || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
-        <div class="row-fluid pagination pagination-centered"><div class="span12">
+        <div class="row<?php echo $gridsystem ?> pagination pagination-centered"><div class="span<?php echo $gridrows; ?>">
                 <?php if ($this->params->def('show_pagination_results', 1)) : ?>                
                     <div class="pagenavcounter pager"><?php echo $this->pagination->getPagesCounter(); ?></div>
                 <?php endif; ?>

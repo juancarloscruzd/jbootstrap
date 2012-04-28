@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------------------
-  # JBootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
+  # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
   # author    Prieco S.A.
   # copyright Copyright (C) 2012 Prieco.com. All Rights Reserved.
@@ -41,14 +41,8 @@ $imgpath = $this->baseurl . '/templates/' . $this->template . '/images';
             <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $imgpath; ?>/apple-touch-icon-114x114.png"/>
         </head>
         <body <?php echo $gantry->displayBodyTag(); ?>>
-            <div id="rt-main">
-                <div class="jb-container">
-                    <div class="jb-block">
-                        <div id="rt-mainbody">
-                            <jdoc:include type="component" />
-                        </div>
-                    </div>
-                </div>
+            <div id="jb-main">
+                <jdoc:include type="component" />
             </div>
 
             <script src="<?php echo $jspath; ?>/jquery.js"></script>
