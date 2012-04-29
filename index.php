@@ -22,6 +22,10 @@ $imgpath = $this->baseurl . '/templates/' . $this->template . '/images';
 $gridsystem = $gantry->get('gridsystem');
 $gridrows = ($gridsystem == '' ? 9 : 12);
 
+$docscss = $gantry->get('docscss');
+
+$minified = $gantry->get('minified');
+
 //JHTML::_('behavior.framework', false);
 //JHTML::_('behavior.mootools', false);
 ?>
@@ -33,9 +37,12 @@ $gridrows = ($gridsystem == '' ? 9 : 12);
         <?php
         $gantry->displayHead();
 
-        $cssfiles = array('bootstrap.css');
+        $cssfiles = ($minified ? array('bootstrap.min.css') : array('bootstrap.css'));
         if ($gridrows == 12)
-            $cssfiles[] = 'bootstrap-responsive.css';
+            $cssfiles[] = ($minified ? 'bootstrap-responsive.min.css' : 'bootstrap-responsive.css');
+
+        if ($docscss)
+            $cssfiles[] = ($minified ? 'docs.min.css' : 'docs.css');
 
         $gantry->addStyles($cssfiles);
         ?>

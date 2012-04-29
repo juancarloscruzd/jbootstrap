@@ -15,7 +15,7 @@ defined('_JEXEC') or die;
 // Note. It is important to remove spaces between elements.
 ?>
 
-<div class="subnav"><ul class="nav <?php echo $class_sfx; ?>"<?php
+<div class="nav-collapse collapse"><ul class="nav <?php echo $class_sfx; ?>"<?php
 $tag = '';
 if ($params->get('tag_id') != NULL) {
     $tag = $params->get('tag_id') . '';
