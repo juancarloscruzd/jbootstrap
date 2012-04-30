@@ -26,6 +26,8 @@ $docscss = $gantry->get('docscss');
 
 $minified = $gantry->get('minified');
 
+$jquery = $gantry->get('jquery');
+
 //JHTML::_('behavior.framework', false);
 //JHTML::_('behavior.mootools', false);
 ?>
@@ -163,7 +165,9 @@ $minified = $gantry->get('minified');
             <?php echo $gantry->displayModules('analytics', 'basic', 'basic'); ?>
         <?php /** End Analytics * */ endif; ?>
 
+<?php if ($jquery) :?>
         <script src="<?php echo $jspath; ?>/jquery.js" type="text/javascript"></script>
+<?php endif; ?>
         <script src="<?php echo $jspath; ?>/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>

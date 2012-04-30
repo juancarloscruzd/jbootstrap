@@ -47,6 +47,8 @@
         
         <field name="minified" type="toggle" default="0" label="Minified Css"/>
         
+        <field name="jquery" type="toggle" default="0" label="Include JQuery"/>
+        
         <field name="cssstyle" type="selectbox" default="style1" label="CSS_STYLE" isbodyclass="true" setbyurl="true"
                setinsession="true" setbysession="true" setincookie="true" setbycookie="true">
             <option value="style1">Style 1</option>
