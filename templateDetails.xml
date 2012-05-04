@@ -8,7 +8,7 @@
     <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
     <authorEmail>support@prieco.com</authorEmail>
     <authorUrl>http://www.prieco.com</authorUrl>
-    <version>0.5</version>
+    <version>0.5rc</version>
     <description>Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)</description>
     <files>
         <filename>index.php</filename>
