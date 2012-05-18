@@ -74,7 +74,7 @@ $upper_limit = $lang->getUpperLimitSearchWord();
                 <?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?> <?php echo $this->pagination->getLimitBox(); ?>
             </label>            
         </fieldset>
-        <p class="counter pager">
+        <p class="counter pagination-centered">
             <?php echo $this->pagination->getPagesCounter(); ?>
         </p>
 

@@ -34,14 +34,15 @@ $jquery = $gantry->get('jquery');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $gantry->language; ?>" lang="<?php echo $gantry->language; ?>" >
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+        
         <?php
         $gantry->displayHead();
 
         $cssfiles = ($minified ? array('bootstrap.min.css') : array('bootstrap.css'));
-        if ($gridrows == 12)
+        if ($gridrows == 12) {
             $cssfiles[] = ($minified ? 'bootstrap-responsive.min.css' : 'bootstrap-responsive.css');
+            echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n";
+        }
 
         if ($docscss)
             $cssfiles[] = ($minified ? 'docs.min.css' : 'docs.css');
@@ -51,9 +52,10 @@ $jquery = $gantry->get('jquery');
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+          <script src=\\"//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
         <![endif]-->            
 
+        <link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
         <link rel="apple-touch-icon" href="<?php echo $imgpath; ?>/apple-touch-icon-iphone.png"/>
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $imgpath; ?>/apple-touch-icon-ipad.png"/>
         <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $imgpath; ?>/apple-touch-icon-114x114.png"/>

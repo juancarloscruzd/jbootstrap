@@ -15,14 +15,14 @@ defined('_JEXEC') or die;
 // Note. It is important to remove spaces between elements.
 ?>
 
-<div class="nav-collapse collapse"><ul class="nav <?php echo $class_sfx; ?>"<?php
+<ul class="nav <?php echo $class_sfx; ?>"<?php
 $tag = '';
 if ($params->get('tag_id') != NULL) {
     $tag = $params->get('tag_id') . '';
     echo ' id="' . $tag . '"';
 }
 ?>>
-    <?php if ($class_sfx === 'nav-list') : ?>
+        <?php if ($class_sfx === 'nav-list') : ?>
         <li></li>
         <li class="nav-header"><?php echo $module->title; ?></li>
     <?php endif; ?>
@@ -80,5 +80,4 @@ if ($params->get('tag_id') != NULL) {
         }
     endforeach;
     ?>
-</ul></div>
-
+</ul>

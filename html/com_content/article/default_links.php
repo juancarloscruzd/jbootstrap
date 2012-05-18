@@ -15,7 +15,7 @@ $urls = json_decode($this->item->urls);
 // Create shortcuts to some parameters.
 $params = $this->item->params;
 ?>
-<div class="content-links">
+<div class="content-links nav nav-list">
     <ul>
         <?php
         if ($urls) :

@@ -156,12 +156,13 @@ $listDirn = $this->escape($this->state->get('list.direction'));
         </table>
 
         <?php if ($this->params->get('show_pagination')) : ?>
+            <?php if ($this->params->def('show_pagination_results', 1)) : ?>
+                <p class="counter pagination-centered">
+                    <?php echo $this->pagination->getPagesCounter(); ?>
+                </p>
+            <?php endif; ?>
+
             <div class="pagination">
-                <?php if ($this->params->def('show_pagination_results', 1)) : ?>
-                    <p class="counter">
-                        <?php echo $this->pagination->getPagesCounter(); ?>
-                    </p>
-                <?php endif; ?>
                 <?php echo $this->pagination->getPagesLinks(); ?>
             </div>
         <?php endif; ?>

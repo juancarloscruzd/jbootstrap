@@ -17,7 +17,7 @@ else :
 endif;
 ?>
 
-<div class="contact-links">
+<div class="contact-links nav nav-list">
     <ul>
         <?php
         foreach (range('a', 'e') as $char) :// letters 'a' to 'e'

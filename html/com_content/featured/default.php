@@ -75,18 +75,18 @@ JHtml::addIncludePath(JPATH_COMPONENT . DS . 'helpers');
     <?php /** End Articles * */ endif; ?>
 
     <?php /** Begin Article Links * */ if (!empty($this->link_items)) : ?>
-        <div class="jb-article-links">
+        <div class="jb-article-links nav nav-list">
             <?php echo $this->loadTemplate('links'); ?>
         </div>
     <?php /** End Article Links * */ endif; ?>
 
     <?php /** Begin Pagination * */ if ($this->params->def('show_pagination', 2) == 1 || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
-        <div class="row<?php echo $gridsystem ?> pagination pagination-centered"><div class="span<?php echo $gridrows; ?>">
-                <?php if ($this->params->def('show_pagination_results', 1)) : ?>                
-                    <div class="pagenavcounter pager"><?php echo $this->pagination->getPagesCounter(); ?></div>
-                <?php endif; ?>
-                <?php echo $this->pagination->getPagesLinks(); ?>
-            </div></div>
+        <?php if ($this->params->def('show_pagination_results', 1)) : ?>                
+            <p class="counter pagination-centered"><?php echo $this->pagination->getPagesCounter(); ?></p>
+        <?php endif; ?>    
+        <div class="<?php echo $gridsystem ?> pagination pagination-centered">
+            <?php echo $this->pagination->getPagesLinks(); ?>
+        </div>
     <?php /** End Pagination * */ endif; ?>
 
 </div>

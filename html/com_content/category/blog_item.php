@@ -24,7 +24,7 @@ JHtml::core();
 <?php if ($this->item->state == 0) : ?>
 <div class="system-unpublished">
 <?php endif; ?>
-<div class="jb-article"><div class="jb-article-bg">
+<article>
 	<?php /** Begin Article Title **/ if ($params->get('show_title')) : ?>
 	<h2 class="title">
 		<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
@@ -163,7 +163,7 @@ JHtml::core();
 			<span></a>
 		</p>
 	<?php endif; ?>
-</div></div>
+</article>
 <?php if ($this->item->state == 0) : ?>
 </div>
 <?php endif; ?>

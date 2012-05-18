@@ -17,7 +17,6 @@ $params = &$this->item->params;
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 //JHtml::_('behavior.tooltip');
 //JHtml::core();
-
 // Get the user object.
 $user = JFactory::getUser();
 // Check if user is allowed to add/edit based on weblinks permissinos.
@@ -147,17 +146,18 @@ $listDirn = $this->escape($this->state->get('list.direction'));
             </tbody>
         </table>
 
-        <?php // Code to add a link to submit a weblink. ?>
+        <?php // Code to add a link to submit a weblink.  ?>
         <?php /* if ($canCreate) : // TODO This is not working due to some problem in the router, I think. Ref issue #23685 ?>
           <?php echo JHtml::_('icon.create', $item, $item->params); ?>
           <?php  endif; */ ?>
         <?php if ($this->params->get('show_pagination')) : ?>
+            <?php if ($this->params->def('show_pagination_results', 1)) : ?>
+                <p class="counter pagination-centered">
+                    <?php echo $this->pagination->getPagesCounter(); ?>
+                </p>
+            <?php endif; ?>
+
             <div class="pagination">
-                <?php if ($this->params->def('show_pagination_results', 1)) : ?>
-                    <p class="counter">
-                        <?php echo $this->pagination->getPagesCounter(); ?>
-                    </p>
-                <?php endif; ?>
                 <?php echo $this->pagination->getPagesLinks(); ?>
             </div>
         <?php endif; ?>

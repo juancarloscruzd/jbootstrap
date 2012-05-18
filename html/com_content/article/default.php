@@ -19,7 +19,7 @@ $params		= $this->item->params;
 $canEdit	= $this->item->params->get('access-edit');
 $user		= JFactory::getUser();
 ?>
-<div class="jb-article"><div class="jb-article-bg">
+<article>
 	<div class="item-page<?php echo $this->pageclass_sfx?>">
 		<?php /** Begin Page Title **/ if ($this->params->get('show_page_heading', 1)) : ?>
 		<h1 class="title">
@@ -178,4 +178,4 @@ $user		= JFactory::getUser();
 
 		<?php echo $this->item->event->afterDisplayContent; ?>
 	</div>
-</div></div>
+</article>
