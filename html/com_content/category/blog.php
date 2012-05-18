@@ -128,7 +128,7 @@ if (($this->params->def('show_pagination', 1) == 1 || ($this->params->get('show_
     <?php if ($this->params->def('show_pagination_results', 1)) : ?>
         <p class="counter pagination-centered"><?php echo $this->pagination->getPagesCounter(); ?></p>
     <?php endif; ?>
-    <div class="<?php echo $gridsystem ?> pagination pagination-centered">
+    <div class="pagination pagination-centered">
         <?php echo $this->pagination->getPagesLinks(); ?>
     </div>
 <?php /** End Pagination * */ endif; ?>
