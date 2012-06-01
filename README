@@ -1,14 +1,14 @@
 
-*** Jootstrap ***
+*** JBootstrap ***
 
 Twitter's Bootstrap for Joomla
 
-Jootstrap is a new kind of Joomla template. We've been working 
+JBootstrap is a new kind of Joomla template. We've been working 
 with Joomla since 2007, and we love to work and extend it. In the 
 other hand, we've been following the last developments around Html5: 
 Boilerplate, Bootstrap, initializr, KendoUI, and Mustache.
 
-Jootstrap is a solution to combine Joomla and Bootstrap in a full 
+JBootstrap is a solution to combine Joomla and Bootstrap in a full 
 template. To help us in the backend management, we have also 
 integrated in the powerfull RocketTheme Gantry framework, as 
 platform to build the theme.
@@ -53,7 +53,7 @@ build a solid theme with.
 
 Get more help and find out more at http://www.gantry-framework.org/
 
---- Jootstrap Changelog --
+--- JBootstrap Changelog --
 
 - Version 0.4 / 2012-04-28
 
@@ -75,7 +75,7 @@ Get more help and find out more at http://www.gantry-framework.org/
 - Version 0.1 / 2012-03-21
 
     Initial release
-    Jootstrap template
+    JBootstrap template
     Bootstrap 2.0
     Gantry Framework
     CleanJs Plugin
