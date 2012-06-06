@@ -31,20 +31,31 @@ class GantryLayoutBody_MainBody extends GantryLayout {
 
     function render($params = array()) {
         global $gantry;
+        global $jbsidebars;
 
         $gridsystem = $gantry->get('gridsystem');
         $gridrows = ($gridsystem == '' ? 9 : 12);
 
         $fparams = $this->_getParams($params);
+        $classKey = $fparams->classKey;
+        $renderOrder = explode('-', $classKey);
 
         // logic to determine if the component should be displayed
         $display_component = !($gantry->get("component-enabled", true) == false && JRequest::getVar('view') == 'featured');
         ob_start();
 // XHTML LAYOUT
-        ?>          
 
-        <div id="jb-main" class="container<?php echo $gridsystem ?>">
-            <div class="row<?php echo $gridsystem ?>">
+        echo "        <div id=\"jb-main\" class=\"container{$gridsystem}\">
+            <div class=\"row{$gridsystem}\">";
+
+        $sidebar_counter = 0;
+        foreach ($renderOrder as $uiObject) {
+            $isSidebar = ($uiObject[0] == 's');
+            if ($isSidebar) {
+                echo $jbsidebars[$sidebar_counter];
+                $sidebar_counter++;
+            } else {
+                ?>          
                 <div class="span<?php echo $fparams->schema['mb']; ?><?php echo ($fparams->pushPull[0] ? ' offset' . $fparams->pushPull[0] : ''); ?>">
                     <?php if (isset($fparams->contentTop)) : ?>
                         <div id="jb-content-top">
@@ -62,11 +73,13 @@ class GantryLayoutBody_MainBody extends GantryLayout {
                         </div>
                     <?php endif; ?>
                 </div>
-                <?php echo $fparams->sidebars; ?>                    
-            </div>
-        </div>
+                <?php
+            }
+        }
 
-        <?php
+        echo '            </div>
+        </div>';
+
         return ob_get_clean();
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /* ------------------------------------------------------------------------
   # Jootstrap - Twitter's Bootstrap for Joomla (with RocketTheme's Gantry administration)
   # ------------------------------------------------------------------------
@@ -19,26 +20,35 @@ gantry_import('core.gantrylayout');
  * @subpackage html.layouts
  */
 class GantryLayoutMod_Sidebar extends GantryLayout {
+
     var $render_params = array(
-        'contents'       =>  null,
-        'position'      =>  null,
-        'gridCount'     =>  null,
-        'pushPull'      =>  ''
+        'contents' => null,
+        'position' => null,
+        'gridCount' => null,
+        'pushPull' => ''
     );
-    function render($params = array()){
+
+    function render($params = array()) {
         global $gantry;
+        global $jbsidebars;
+        if (!$jbsidebars)
+            $jbsidebars = array();
 
-        $rparams = $this-> _getParams($params);
+        $rparams = $this->_getParams($params);
+        $pushPull = ($rparams->pushPull ? ' offset' . $rparams->pushPull : '');
+
         ob_start();
-    // XHTML LAYOUT
-?>
-            <div class="span<?php echo $rparams->gridCount;?><?php echo ($rparams->pushPull? ' offset'.$rparams->pushPull : ''); ?>">
-                <div id="jb-<?php echo $rparams->position; ?>" class="well sidebar-nav">
-                    <?php echo $rparams->contents; ?>
+        // XHTML LAYOUT        
+        $sidebar = "            <div class=\"span{$rparams->gridCount}{$pushPull}\">
+                <div id=\"jb-{$rparams->position}\" class=\"well sidebar-nav\">
+                    {$rparams->contents}
                 </div>
-            </div>
+            </div>";
 
-<?php
+        echo $sidebar;
+        $jbsidebars[] = $sidebar;
+
         return ob_get_clean();
     }
+
 }
