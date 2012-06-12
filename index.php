@@ -18,9 +18,14 @@ require_once('lib/gantry/gantry.php');
 
 $jspath = $this->baseurl . '/templates/' . $this->template . '/js';
 $imgpath = $this->baseurl . '/templates/' . $this->template . '/images';
+$lesspath = $this->baseurl . '/templates/' . $this->template . '/css/less';
 
 $gridsystem = $gantry->get('gridsystem');
 $gridrows = ($gridsystem == '' ? 9 : 12);
+
+$responsive = $gantry->get('responsive');
+
+$lesscompiler = $gantry->get('lesscompiler');
 
 $docscss = $gantry->get('docscss');
 
@@ -41,6 +46,9 @@ $jquery = $gantry->get('jquery');
         $cssfiles = ($minified ? array('bootstrap.min.css') : array('bootstrap.css'));
         if ($gridrows == 12) {
             $cssfiles[] = ($minified ? 'bootstrap-responsive.min.css' : 'bootstrap-responsive.css');
+        }
+
+        if ($responsive) {
             echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n";
         }
 
@@ -59,6 +67,12 @@ $jquery = $gantry->get('jquery');
         <link rel="apple-touch-icon" href="<?php echo $imgpath; ?>/apple-touch-icon-iphone.png"/>
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $imgpath; ?>/apple-touch-icon-ipad.png"/>
         <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $imgpath; ?>/apple-touch-icon-114x114.png"/>
+        <?php
+        if ($lesscompiler) {
+            echo "<link rel=\"stylesheet/less\" type=\"text/css\" href=\"" . $lesspath . "/styles.less\"/>\n";
+            echo "<script src=\"" . $jspath . "/less.min.js\" type=\"text/javascript\"></script>"; 
+        }
+        ?>
     </head>
     <body id="jb-body" <?php echo $gantry->displayBodyTag(); ?>>
         <?php /** Begin Drawer * */ if ($gantry->countModules('drawer')) : ?>

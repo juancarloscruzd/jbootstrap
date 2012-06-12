@@ -43,6 +43,10 @@
             <option value="-fluid">Responsive - Fluid Grid</option>
         </field>
         
+        <field name="responsive" type="toggle" default="1" label="Responsive"/>
+
+        <field name="lesscompiler" type="toggle" default="0" label="Include LESS"/>
+        
         <field name="docscss" type="toggle" default="0" label="Include Docs.Css"/>
         
         <field name="minified" type="toggle" default="0" label="Minified Css"/>
