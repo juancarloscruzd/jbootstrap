@@ -36,10 +36,10 @@ $jquery = $gantry->get('jquery');
 //JHTML::_('behavior.framework', false);
 //JHTML::_('behavior.mootools', false);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $gantry->language; ?>" lang="<?php echo $gantry->language; ?>" >
+<!DOCTYPE html>
+<html lang="<?php echo $gantry->language; ?>" >
     <head>
-        
+
         <?php
         $gantry->displayHead();
 
@@ -61,7 +61,7 @@ $jquery = $gantry->get('jquery');
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
           <script src=\\"//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-        <![endif]-->            
+        <![endif]-->
 
         <link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
         <link rel="apple-touch-icon" href="<?php echo $imgpath; ?>/apple-touch-icon-iphone.png"/>
@@ -70,7 +70,7 @@ $jquery = $gantry->get('jquery');
         <?php
         if ($lesscompiler) {
             echo "<link rel=\"stylesheet/less\" type=\"text/css\" href=\"" . $lesspath . "/styles.less\"/>\n";
-            echo "<script src=\"" . $jspath . "/less.min.js\" type=\"text/javascript\"></script>"; 
+            echo "<script src=\"" . $jspath . "/less.min.js\" type=\"text/javascript\"></script>";
         }
         ?>
     </head>
@@ -85,9 +85,9 @@ $jquery = $gantry->get('jquery');
         <?php /** Begin Top * */ if ($gantry->countModules('top')) : ?>
             <div id="jb-top" class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
-                    <div class="container<?php echo $gridsystem ?>">                       
+                    <div class="container<?php echo $gridsystem ?>">
                         <?php echo $gantry->displayModules('top', 'basic', 'basic'); ?>
-                    </div>                   
+                    </div>
                 </div>
             </div>
         <?php /** End Top * */ endif; ?>
