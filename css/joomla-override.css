@@ -104,3 +104,17 @@
 .bannergroup {
 	margin: 18px 0;
 }
+
+#jb-mainbody article {
+   *zoom: 1;
+}
+
+#jb-mainbody article:before,
+#jb-mainbody article:after {
+  display: table;
+  content: "";
+}
+
+#jb-mainbody article:after {
+  clear: both;
+}
