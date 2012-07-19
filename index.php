@@ -16,63 +16,15 @@ defined('_JEXEC') or die('Restricted index access');
 // load and inititialize gantry class
 require_once('lib/gantry/gantry.php');
 
-$jspath = $this->baseurl . '/templates/' . $this->template . '/js';
-$imgpath = $this->baseurl . '/templates/' . $this->template . '/images';
-$lesspath = $this->baseurl . '/templates/' . $this->template . '/css/less';
-
-$gridsystem = $gantry->get('gridsystem');
-$gridrows = ($gridsystem == '' ? 9 : 12);
-
-$responsive = $gantry->get('responsive');
-
-$lesscompiler = $gantry->get('lesscompiler');
-
-$docscss = $gantry->get('docscss');
-
-$minified = $gantry->get('minified');
-
-$jquery = $gantry->get('jquery');
-
 //JHTML::_('behavior.framework', false);
 //JHTML::_('behavior.mootools', false);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $gantry->language; ?>" >
     <head>
-
-        <?php
-        $gantry->displayHead();
-
-        $cssfiles = ($minified ? array('bootstrap.min.css') : array('bootstrap.css'));
-        if ($gridrows == 12) {
-            $cssfiles[] = ($minified ? 'bootstrap-responsive.min.css' : 'bootstrap-responsive.css');
-        }
-
-        if ($responsive) {
-            echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n";
-        }
-
-        if ($docscss)
-            $cssfiles[] = ($minified ? 'docs.min.css' : 'docs.css');
-
-        $gantry->addStyles($cssfiles);
-        ?>
-
-        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-          <script src=\\"//html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-        <![endif]-->
-
-        <link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-        <link rel="apple-touch-icon" href="<?php echo $imgpath; ?>/apple-touch-icon-iphone.png"/>
-        <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $imgpath; ?>/apple-touch-icon-ipad.png"/>
-        <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $imgpath; ?>/apple-touch-icon-114x114.png"/>
-        <?php
-        if ($lesscompiler) {
-            echo "<link rel=\"stylesheet/less\" type=\"text/css\" href=\"" . $lesspath . "/styles.less\"/>\n";
-            echo "<script src=\"" . $jspath . "/less.min.js\" type=\"text/javascript\"></script>";
-        }
-        ?>
+      <?php
+        include('gantry-head.php');
+      ?>
     </head>
     <body id="jb-body" <?php echo $gantry->displayBodyTag(); ?>>
         <?php /** Begin Drawer * */ if ($gantry->countModules('drawer')) : ?>
@@ -181,9 +133,9 @@ $jquery = $gantry->get('jquery');
             <?php echo $gantry->displayModules('analytics', 'basic', 'basic'); ?>
         <?php /** End Analytics * */ endif; ?>
 
-<?php if ($jquery) :?>
+    <?php if ($jquery) :?>
         <script src="<?php echo $jspath; ?>/jquery.js" type="text/javascript"></script>
-<?php endif; ?>
+    <?php endif; ?>
         <script src="<?php echo $jspath; ?>/bootstrap.min.js" type="text/javascript"></script>
     </body>
 </html>
